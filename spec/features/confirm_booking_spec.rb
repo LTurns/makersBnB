@@ -7,7 +7,7 @@ scenario 'user can see their booking dates' do
   Available_Dates.create(listing_id: listing.id, date_start: '2020-05-04' , date_end: '2020-05-05');
   visit("/booking/#{listing.id}/book")
 
-  Booking.create(listing_id: "#{listing.id}", user_id: "#{User.current_user.id}", book_from: "2020-05-04", book_to: "2020-05-05")
+  Booking.create(listing_id: "#{listing.id}", user_id: "#{User.current_user.id}", book_from: '2020-05-04', book_to: '2020-05-05')
   expect(page).to have_button "Submit"
   click_button "Submit"
   expect(current_path).to eq "/booking/confirmation"

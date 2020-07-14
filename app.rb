@@ -28,6 +28,8 @@ class MakersBnB < Sinatra::Base
     # p params
     @listing = Listing.find(id: params[:id])
     @unicorn = @listing.available_dates
+    @user = User.find(id: @listing.user_id)
+
     erb (:'listings/show')
   end
 
@@ -41,7 +43,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get "/users/:username/user" do
-    p params
+    # p params
     @user = User.current_user
     @listings = @user.listings
     session[:username] = @user.username
@@ -55,7 +57,7 @@ class MakersBnB < Sinatra::Base
   end
 
   patch '/listings/:id' do
-    p "Patch #{params}"
+    # p "Patch #{params}"
     listing = Listing.update(id: params[:id], name: params[:name], description: params[:description], price: params[:price])
     Picture.update(url: params[:url], listing_id: listing.id)
     redirect "/users/#{session[:username]}/user"
@@ -67,6 +69,7 @@ class MakersBnB < Sinatra::Base
     Listing.delete(id: params[:id])
     redirect "/users/#{session[:username]}/user"
   end
+
 
   get '/signup' do
     flash[:warning] = "this username/email already exists"
@@ -109,19 +112,50 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+
   get '/booking/:id/book' do
-    @listing
+    @listing_id = params[:id]
     erb (:'booking/book')
   end
 
-  post '/store_booking' do
-    # Booking.create(listing_id: listing.id, user_id: User.current_user.id, book_from: params[:book_from], book_to: params[:book_to])
-    redirect '/booking/confirmation'
+  post '/:id/store_booking' do
+    listing_id = params[:id]
+    Booking.create(listing_id: params[:id], user_id: User.current_user.id, book_from: params[:book_from], book_to: params[:book_to])
+    redirect "/#{listing_id}/booking/confirmation"
   end
 
-  get '/booking/confirmation' do
+  get '/:id/booking/confirmation' do
+    @listing_id = params[:id]
+    @listing = Listing.find(id: params[:id])
     erb (:'/booking/confirmation')
   end
 
   run! if app_file == $0
 end
+
+
+
+
+# get '/listings/:id/enquiry' do
+  #   @listing_id = params[:id]
+  #   erb (:'listings/enquiry')
+  # end
+
+  # post '/listings/:id/enquiry' do
+  #   # @listing_id = params[:id]
+  #   # @listing = Listing.find(id: @listing_id) #instance of listing 
+  #   # @listing_owner_id = @listing.user_id #user ID of owns the listing 
+  #   # @listing_owner = User.find(id: @listing_owner_id)
+  #   # @listing_owner_email = @listing_owner.email
+  #   # @enquiry_user = User.current_user.email
+  #   # @enquiry_user_email = @enquiry_user.email 
+  #   #user id making enquire /// user id of listing owner 
+
+  #   #Enquiry.create(subject: params[:subject_line], body: params[:body], to: "#{@listing_owner_email}", from: @enquiry_user_email)
+  #   redirect "/listings/#{@listing_id}/enquiry_confirmation"
+  # end
+
+  # get '/listings/:id/enquiry_confirmation' do
+  #   @listing_id = params[:id]
+  #   erb (:'listings/enquiry_confirmation')
+  # end

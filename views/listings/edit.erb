@@ -1,3 +1,4 @@
+<div class="container"
 <h1>Edit your listing</h1>
 
 <form action="/listings/<%= @listing_id %>" method="post">
@@ -12,3 +13,4 @@
   <input type="url" name="url" value="<%= @listing.pictures.first['url'] %>" required>
   <input type="submit" name="" value="Update">
 </form>
+</div>
