@@ -10,6 +10,8 @@
     <% if User.current_user %>
       <a href="/users/<%= User.current_user.username %>/user"><p>My Account</p></a>
     <% end %>
+    <center>
+    <div class="welcome">
     <h1>Welcome to MakersBnB</h1>
       <%= flash[:welcome_user] %>
 
@@ -51,5 +53,7 @@
       </ul>
     </p>
   </div>
+  </div>
+  </center>
 </body>
 </html>
