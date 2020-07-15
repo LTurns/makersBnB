@@ -19,8 +19,8 @@
     <p><%= listing.description %></p>
     <p>£<%= listing.price %></p>
     <% listing.pictures.each do |picture| %>
-      <img src="<%= picture["url"] %>" alt=""/>
-    <% end %>
+      <img src="<%= picture["url"] %>" width="200" alt=""/>
+    <% end %><br></br>
     <form action="/listings/<%= listing.id %>/edit">
       <input id="button" type="submit" name="" value="Edit">
     </form>
@@ -44,7 +44,7 @@
     opacity: 0.8;
     color: #888;
     text-shadow: 1px 1px 1px #FFF;
-    height: 500px;
+    height: 550px;
 }
 
 body {
@@ -54,8 +54,8 @@ body {
 #button {
   color: white;
   background: grey;
-  width: 100px;
-  height: 50px;
+  width: 70px;
+  height: 30px;
 }
 
 </style>
