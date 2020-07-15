@@ -14,7 +14,7 @@
       <%= @listing.description %>
     </p>
     <p>Price:
-      <%= @listing.price %>
+      £<%= @listing.price %>
     </p>
     <p>Available from 
       <% @unicorn.each do |x| %>
@@ -34,7 +34,7 @@
 
     </p>
 
-      <img src="<%= @listing.pictures.first['url'] %>" alt="">
+      <img src="<%= @listing.pictures.first['url'] %>" width="200" alt="">
 </div>
 <style>
 
@@ -47,7 +47,7 @@
     padding: 25px 15px 25px 10px;
     border-radius: 10%;
     opacity: 0.8;
-    color: #888;
+    color: black;
     text-shadow: 1px 1px 1px #FFF;
     height: 500px;
     font-size: 14px;
