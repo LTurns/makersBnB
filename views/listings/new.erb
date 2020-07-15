@@ -20,7 +20,7 @@
     <label for="picture_url">Show us your place
       <input type="text" name="picture_url" value="" placeholder="Picture url">
     </label>
-    <input type="submit" value="Submit"/>
+    <input id="button" type="submit" value="Submit"/><br>
   </form>
 </div>
 
@@ -42,14 +42,14 @@
 }
 
 body {
-  align: center;
-  position: absolute;
-  background-size: 1500px;
-  width: 1300px;
-  height: 400px;
-  background-repeat: no-repeat;
-  background-image: url("images/cottage.png");
+  background-image: url("../images/cottage.png");
 }
 
+#button {
+  color: white;
+  background: grey;
+  width: 100px;
+  height: 50px;
+}
 </style>
 </body>

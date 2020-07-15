@@ -7,7 +7,7 @@
   <input type="text" name="username" placeholder="username"/><br></br>
   <input type="text" name="email" placeholder="email"/><br></br>
   <input type="password" name="password" placeholder="password"/><br></br>
-  <input type="submit" value="Register" /><br></br>
+  <input id="submit" type="submit" value="Register" /><br></br>
 
   <%= flash[:warning] %>
 </form>
@@ -37,5 +37,12 @@
   padding: 30px;
   margin-top: 30px;
   border-radius: 10%;
+}
+
+#submit {
+  color: white;
+  background: grey;
+  width: 100px;
+  height: 50px;
 }
 </style>

@@ -1,14 +1,17 @@
-<h3>Please select dates below for...</h3>
+<body>
+
 
 <div class="container">
+<h3>Please select dates below for...</h3><br></br>
+
 <form action='/<%= @listing_id %>/store_booking' method="post">
   <label> From:
 <input type="date" name="book_from" />
-</label>
+</label><br></br>
 <label> To:
 <input type="date" name="book_to" />
-</label>
-<input type="submit" name="Submit"/>
+</label><br></br>
+<input id="button" type="submit" name="Submit"/>
 </form>
 </div>
 
@@ -27,4 +30,17 @@
     text-shadow: 1px 1px 1px #FFF;
     height: 500px;
 }
+
+#button {
+  color: white;
+  background: grey;
+  width: 100px;
+  height: 50px;
+}
+
+
+body {
+  background-image: url("/images/cottage.png");
+}
 </style>
+</body>

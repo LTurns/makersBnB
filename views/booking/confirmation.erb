@@ -1,3 +1,29 @@
-<h3>You have booked the following... </h3>
+<body>
+<div class="container">
 
-<%= @listing.name %> <img src="<%= @listing.pictures.first['url'] %>">
+<h3>You have booked the following... </h3>
+<%= @listing.name %> <img src="<%= @listing.pictures.first['url'] %>"/>
+
+<style>
+.container {
+  margin: 50px;
+  margin-right: 1250px;
+    text-align: center;
+    width: 400px;
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    border-radius: 10%;
+    opacity: 0.8;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    height: 500px;
+    font-size: 14px;
+}
+
+body {
+  background-image: url("/images/cottage.png");
+}
+
+</style>
+</div>
+</body>

@@ -1,43 +1,64 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Holiday Lets, Homes, Experiences &amp; Places - Makersbnb</title>
+</head>
+<body>
+
 <div class="container">
 <center>
-<form action="/">
-  <input type="submit" name="" value="Home">
-</form>
 
 <h1>Account Info</h1>
 
-<p><%= @user.username %></p>
 <p><%= @user.email %></p>
 
-<div class="container">
   <% @listings.each do |listing|%>
     <p><%= listing.name %></p>
     <p><%= listing.description %></p>
     <p>£<%= listing.price %></p>
     <% listing.pictures.each do |picture| %>
-      <img src="<%= picture["url"] %>" alt="">
+      <img src="<%= picture["url"] %>" alt=""/>
     <% end %>
     <form action="/listings/<%= listing.id %>/edit">
-      <input type="submit" name="" value="Edit">
+      <input id="button" type="submit" name="" value="Edit">
     </form>
     <form action="/listings/<%= listing.id %>" method="post">
       <input type='hidden' name='_method' value='DELETE'/>
-      <input type="submit" value="Delete" />
+      <input id="button" type="submit" value="Delete" />
     </form>
   <% end %>
   </center>
-</div>
-</div>
 
 <style>
 
 .container {
+  margin: 50px;
+  margin-right: 1250px;
     text-align: center;
+    width: 400px;
     background: #F7F7F7;
     padding: 25px 15px 25px 10px;
     border-radius: 10%;
+    opacity: 0.8;
     color: #888;
     text-shadow: 1px 1px 1px #FFF;
     height: 500px;
-    font-size: 14px;
 }
+
+body {
+  background-image: url("/images/cottage.png");
+}
+
+#button {
+  color: white;
+  background: grey;
+  width: 100px;
+  height: 50px;
+}
+
+</style>
+</div>
+</body>
+</html>

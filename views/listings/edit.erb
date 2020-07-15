@@ -8,14 +8,14 @@
   <label for="price">Price per night</label>
   <input type="text" name="price" value="<%= @listing.price %>" required>
   <label for="description">Description</label>
-  <textarea name="description" rows="8" cols="80"><%= @listing.description %></textarea>
+  <textarea name="description" rows="8" cols="40"><%= @listing.description %></textarea>
   <label for="url">Add pictures</label>
   <input type="url" name="url" value="<%= @listing.pictures.first['url'] %>" required>
   <input type="submit" name="" value="Update">
 </form>
 </div>
 
-
+<style>
 .container {
   margin: 50px;
   margin-right: 1250px;
@@ -30,3 +30,15 @@
     height: 500px;
     font-size: 14px;
 }
+
+body {
+  background-image: url("/images/cottage.png");
+}
+
+#button {
+  color: white;
+  background: grey;
+  width: 100px;
+  height: 50px;
+}
+</style>
