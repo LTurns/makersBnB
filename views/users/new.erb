@@ -1,0 +1,44 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Holiday Lets, Homes, Experiences &amp; Places - Makersbnb</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>
+    <%= flash[:notice] %>
+  </h2>
+  <h1>Sign In</h1><br><br>
+  <form action="/sessions" method="post">
+    <label for="username">Username
+      <input type="text" name="username" value="" placeholder="username" required>
+    </label>
+    <label for="password">Password
+      <input type="password" name="password" value="" placeholder="password" required>
+    </label><br></br>
+    <input type="submit" name="" value="Sign In">
+  </form>
+
+
+<style>
+
+.container {
+  margin: 50px;
+  margin-right: 1250px;
+    text-align: center;
+    width: 400px;
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    border-radius: 10%;
+    opacity: 0.8;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    height: 500px;
+}
+</style>
+</div>
+</body>
+</html>

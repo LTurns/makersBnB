@@ -6,54 +6,75 @@
   <title>Holiday Lets, Homes, Experiences &amp; Places - Makersbnb</title>
 </head>
 <body>
-  <div class="container">
+
+    <div class="container">
+
     <% if User.current_user %>
-      <a href="/users/<%= User.current_user.username %>/user"><p>My Account</p></a>
-    <% end %>
-    <center>
-    <div class="welcome">
+    <a href="/users/<%= User.current_user.username %>/user"><p>My Account</p></a>
+  <% end %>
+
     <h1>Welcome to MakersBnB</h1>
       <%= flash[:welcome_user] %>
 
     <% if User.current_user == nil %>
-    <form action="/signup">
+
+    <form id="signup" action="/signup">
       <input type="submit" name="" value="Sign Up">
     </form>
 
-    <form action="/sessions/new">
+    <form id="signin" action="/sessions/new">
       <input type="submit" name="" value="Sign In">
     </form>
+
     <% else %>
-    <h3>Welcome <%= User.current_user.username %></h3>
-    <form action="/sessions/destroy" method="post">
-      <input type="submit" name="" value="Sign Out">
+    <h3><%= User.current_user.username %></h3><br></br>
+    <form id="button" action="/sessions/destroy" method="post">
+      <input id="button" type="submit" name="" value="Sign Out"><br></br>
     </form>
 
-    <form action='/listings/new'>
-      <input type="submit" value="Add Listing"/>
+    <form id="button" action='/listings/new'>
+      <input id="button" type="submit" value="Add Listing"/><br></br>
     </form>
+
     <% end %>
 
     <%= flash[:notice] %>
     <p>
-      <ul>
         <% @listings.each do |listing| %>
-          <li class="listing" id="listing-<%= listing.id %>">
+          <p class="listing" id="listing-<%= listing.id %>>
             <div class="">
-              <%= listing.name %> <%= listing.description %> <%= listing.price %>
+            <center>
+              <%= listing.name %> <br></br> <%= listing.description %> <p>£<%= listing.price %>
               <% listing.pictures.each do |picture| %>
                 <img src="<%= picture['url'] %>" alt="">
               <% end %>
               <form action="/listings/<%= listing.id %>/show" method="get">
                 <input type="submit" value="View" />
               </form>
+              </center>
             </div>
-          </li>
+          </p>
         <% end %>
-      </ul>
     </p>
-  </div>
-  </div>
-  </center>
+  <style>
+
+
+  .container {
+    margin: 50px;
+    margin-right: 1250px;
+      text-align: center;
+      width: 400px;
+      background: #F7F7F7;
+      padding: 25px 15px 25px 10px;
+      border-radius: 10%;
+      opacity: 0.8;
+      color: #888;
+      text-shadow: 1px 1px 1px #FFF;
+      height: 550px;
+      font-size: 14px;
+  }
+
+</style>
+</div>
 </body>
 </html>

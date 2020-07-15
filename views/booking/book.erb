@@ -1,5 +1,6 @@
 <h3>Please select dates below for...</h3>
 
+<div class="container">
 <form action='/<%= @listing_id %>/store_booking' method="post">
   <label> From:
 <input type="date" name="book_from" />
@@ -9,3 +10,21 @@
 </label>
 <input type="submit" name="Submit"/>
 </form>
+</div>
+
+<style>
+
+.container {
+  margin: 50px;
+  margin-right: 1250px;
+    text-align: center;
+    width: 400px;
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    border-radius: 10%;
+    opacity: 0.8;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    height: 500px;
+}
+</style>

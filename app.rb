@@ -89,7 +89,7 @@ class MakersBnB < Sinatra::Base
 
   get '/sessions/new' do
     # p session[:user_id]
-    erb :'/sessions/new'
+    erb :'/users/new'
   end
 
   post '/sessions' do
@@ -101,7 +101,7 @@ class MakersBnB < Sinatra::Base
       redirect '/'
     else
       flash[:notice] = 'Please check your username or password!'
-      redirect '/sessions/new'
+      redirect '/users/new'
     end
   end
 

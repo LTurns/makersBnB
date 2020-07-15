@@ -1,4 +1,5 @@
 <div class="container">
+<center>
 <form action="/">
   <input type="submit" name="" value="Home">
 </form>
@@ -8,23 +9,35 @@
 <p><%= @user.username %></p>
 <p><%= @user.email %></p>
 
-<div class="">
+<div class="container">
   <% @listings.each do |listing|%>
-  <div class="listing">
     <p><%= listing.name %></p>
     <p><%= listing.description %></p>
-    <p><%= listing.price %></p>
+    <p>£<%= listing.price %></p>
     <% listing.pictures.each do |picture| %>
       <img src="<%= picture["url"] %>" alt="">
     <% end %>
     <form action="/listings/<%= listing.id %>/edit">
       <input type="submit" name="" value="Edit">
     </form>
-    <form action="/listings/<%= listing.id %>" method="post"> 
-      <input type='hidden' name='_method' value='DELETE'/> 
-      <input type="submit" value="Delete" /> 
+    <form action="/listings/<%= listing.id %>" method="post">
+      <input type='hidden' name='_method' value='DELETE'/>
+      <input type="submit" value="Delete" />
     </form>
-  </div>
   <% end %>
+  </center>
 </div>
 </div>
+
+<style>
+
+.container {
+    text-align: center;
+    background: #F7F7F7;
+    padding: 25px 15px 25px 10px;
+    border-radius: 10%;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    height: 500px;
+    font-size: 14px;
+}
